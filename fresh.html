@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>FRESH</title>
+    <style>
+        body { font-family: Helvetica, Helvetica, Helvetica; margin: 0; padding: 0; background-color: #f4f4f4; }
+        header { background-color: #0c2101; color: white; padding: 1em; text-align: center; }
+        nav ul { list-style: none; padding: 0; margin: 0; display: flex; justify-content: center; }
+        nav ul li { margin: 0 15px; }
+        nav ul li a { color: white; text-decoration: none; font-weight: bold; }
+        footer { background-color: #0c2101; color: white; text-align: center; padding: 1em 0; }
+        .section { display: none; padding: 20px; }
+        .active { display: block; }
+        .product-gallery { display: flex; justify-content: space-around; flex-wrap: wrap; }
+        .product-item { background: #fff; border: 1px solid #ddd; padding: 20px; width: 45%; margin-bottom: 20px; text-align: center; }
+        .product-item img { max-width: 100%; height: auto; }
+        .btn { background-color: #0c2101; color: white; padding: 10px 20px; border: none; cursor: pointer; }
+        .btn:hover { background-color: #0c2101; }
+        .cart-list { margin-top: 20px; }
+        .cart-list ul { list-style: none; padding: 0; }
+        .cart-list ul li { margin: 10px 0; }
+        .cart-actions { margin-top: 20px; text-align: center; }
+        .contact-form input, .contact-form textarea { width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 5px; }
+        .contact-form button { width: 100%; padding: 10px; background-color: #0c2101; color: white; border: none; cursor: pointer; }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <h1>FRESH</h1>
+        <nav>
+            <ul>
+                <li><a href="#" onclick="showPage('home')">Home</a></li>
+                <li><a href="#" onclick="showPage('shop')">Shop</a></li>
+                <li><a href="#" onclick="showPage('blog')">Blog</a></li>
+                <li><a href="#" onclick="showPage('contact')">Contact Us</a></li>
+                <li><a href="#" onclick="showPage('buy-page')">Buy Page</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Home Page -->
+    <div id="home" class="section active">
+        <h2>Welcome to FRESH-Flora Resources and Eco-friendly Sustainable Horticulture</h2>
+        <p>Your one-stop shop for indoor plants, outdoor plants, and gardening tools. Explore our collection and bring nature closer to you!</p>
+        <img src="Images/home__page.png" alt="FRESH Banner" style="width: 100%; max-height: 700px; object-fit: cover;">
+    </div>
+
+    <!-- Shop Page -->
+    <div id="shop" class="section">
+        <h2>Shop Plants and Gardening Tools</h2>
+        <div class="product-gallery">
+            <!-- Example Product Items -->
+            <div class="product-item">
+                <img src="Images/Peace lily.jpg" alt="Peace Lily">
+                <h3>Peace Lily</h3>
+                <p>Price: ₹400.00</p>
+                <button class="btn" onclick="addToCart('Peace Lily', 400, 'Images/Peace lily.jpg')">Add to Cart</button>
+            </div>
+            <div class="product-item">
+                <img src="Images/Snake plant.jpg" alt="Snake Plant">
+                <h3>Snake Plant</h3>
+                <p>Price: ₹350.00</p>
+                <button class="btn" onclick="addToCart('Snake Plant', 350, 'Images/Snake plant.jpg')">Add to Cart</button>
+            </div>
+            <div class="product-item">
+                <img src="Images/Spider plant.webp" alt="Spider Plant">
+                <h3>Spider Plant</h3>
+                <p>Price: ₹450.00</p>
+                <button class="btn" onclick="addToCart('Spider Plant', 450, 'Images/Spider plant.webp')">Add to Cart</button>
+            </div>
+
+            <!-- Outdoor Plants -->
+            <div class="product-item">
+                <img src="Images/Rose bush.jpg" alt="Rose Bush">
+                <h3>Rose Bush</h3>
+                <p>Price: ₹200.00</p>
+                <button class="btn" onclick="addToCart('Rose Bush', 200, 'Images/Rose bush.jpg')">Add to Cart</button>
+            </div>
+            <div class="product-item">
+                <img src="Images/Lavender plant.webp" alt="Lavender">
+                <h3>Lavender</h3>
+                <p>Price: ₹500.00</p>
+                <button class="btn" onclick="addToCart('Lavender', 500, 'Images/Lavender plant.webp')">Add to Cart</button>
+            </div>
+            <div class="product-item">
+                <img src="Images/Heartleaf.jpeg" alt="HeartLeaf Money plant">
+                <h3>HeartLeaf Money Plant</h3>
+                <p>Price: ₹350.00</p>
+                <button class="btn" onclick="addToCart('HeartLeaf Money Plant', 350, 'Images/Heartleaf.jpeg')">Add to Cart</button>
+            </div>
+            <!-- Gardening Tools -->
+            <div class="product-item">
+                <img src="Images/Pruningshear.jpg" alt="Pruning Shears">
+                <h3>Pruning Shears</h3>
+                <p>Price: ₹400.00</p>
+                <button class="btn" onclick="addToCart('Pruning Shears', 400, 'Images/Pruningshear.jpg')">Add to Cart</button>
+            </div>
+            <div class="product-item">
+                <img src="Images/Watering can.webp" alt="Watering Can">
+                <h3>Watering Can</h3>
+                <p>Price: ₹350.00</p>
+                <button class="btn" onclick="addToCart('Watering Can', 350, 'Images/Watering can.webp')">Add to Cart</button>
+            </div>
+            <div class="product-item">
+                <img src="Images/Gardening gloves.jpg" alt="Garden Gloves">
+                <h3>Garden Gloves</h3>
+                <p>Price: ₹200.00</p>
+                <button class="btn" onclick="addToCart('Garden Gloves', 200, 'Images/Gardening gloves.jpg')">Add to Cart</button>
+            </div>
+            <div class="product-item">
+                <img src="Images/gardening tools.webp" alt="Trowel">
+                <h3>Garden Trowel</h3>
+                <p>Price: ₹700.00</p>
+                <button class="btn" onclick="addToCart('Garden Trowel', 700, 'Images/gardening tools.webp')">Add to Cart</button>
+            </div>
+    </div>
+</div>
+    <!-- Blog Page -->
+<div id="blog" class="section">
+        <style>
+            .imgMain {
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            img
+            {
+                width: 600px;
+            }
+        </style>
+    <h2 align="center">Gardening Tips & Tricks</h2>
+   
+    <article>
+        <h3 align="center">5 Tips for Thriving Indoor Plants</h3>
+        <img src="Images/Indoor Plants Blog.png" class="imgMain" alt="Indoor plants tips" style="width: 20%; max-height: 400px; object-fit: cover;">
+        <p align="center">Water your indoor plants moderately, provide indirect sunlight, and avoid over-fertilizing to keep your plants healthy and thriving.</p>
+    </article>
+    <article>
+        <h3 align="center">Top Outdoor Plants for Beginners</h3>
+        <img src="Images/Outdoor plant blog.jpg" class="imgMain" alt="Outdoor plants for beginners" style="width: 20%; max-height: 400px; object-fit: cover; position: center center;">
+        <p align="center">Rose bushes, hibiscus, and bougainvillea are ideal for first-time gardeners. These plants require minimal care and will bloom beautifully in your garden.</p>
+    </article>
+    <article>
+        <h3 align="center">How to Choose the Right Soil for Your Plants</h3>
+        <img src="Images/Soil image blog.png" class="imgMain" alt="Choosing the right soil" style="width: 20%; max-height: 400px; object-fit: cover; position: center center;">
+        <p align="center">The right soil plays a crucial role in plant health. Learn how to choose soil based on your plant’s needs, such as well-draining soil for succulents or rich, loamy soil for vegetables.</p>
+    </article>
+    <article>
+        <h3 align="center">Seasonal Gardening Tips</h3>
+        <img src="Images/Seasonal garden tips blog.jpg" class="imgMain" alt="Seasonal gardening" style="width: 20%; max-height: 400px; object-fit: cover; position: center center;">
+        <p align="center">In spring, focus on planting annuals and perennials. In fall, ensure that your garden is prepped for winter by mulching and protecting delicate plants.</p>
+    </article>
+    </centre>
+</div>
+    <!-- Contact Us Page -->
+<div id="contact" class="section">
+    <h2>Contact Us</h2>
+    <p>If you have any questions, feel free to reach out to us using the form below or through the contact details listed.</p>
+
+    <!-- Contact Information -->
+    <div>
+        <h3>Our Contact Information</h3>
+        <ul>
+            <li><strong>Email:</strong> support@freshfarm.com</li>
+            <li><strong>Phone:</strong> +91 9876543210</li>
+            <li><strong>Address:</strong> 123, blue Garden St., Plant City, PC 56789</li>
+        </ul>
+    </div>
+    <!-- Contact Form -->
+    <form class="contact-form">
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <textarea rows="5" placeholder="Your Message" required></textarea>
+        <button type="submit" class="btn">Send Message</button>
+    </form>
+</div>
+
+    <!-- Buy Page -->
+    <div id="buy-page" class="section">
+        <h2>Your Cart</h2>
+        <div id="cart-items" class="cart-list">
+            <!-- Items will be dynamically added here -->
+        </div>
+        <div class="cart-actions">
+            <h3 id="total-price">Total: ₹0.00</h3>
+            <button class="btn" onclick="checkout()">Proceed to Checkout</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 FRESH. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function showPage(page) {
+            let sections = document.querySelectorAll('.section');
+            sections.forEach(section => section.classList.remove('active'));
+            document.getElementById(page).classList.add('active');
+        }
+
+        let cart = [];
+
+        function addToCart(itemName, itemPrice, itemImage) {
+            cart.push({ name: itemName, price: itemPrice, image: itemImage });
+            updateCart();
+        }
+
+        function updateCart() {
+            const cartContainer = document.getElementById('cart-items');
+            cartContainer.innerHTML = '';
+            let total = 0;
+
+            cart.forEach(cartItem => {
+                const productDiv = document.createElement('div');
+                productDiv.classList.add('product-item');
+                
+                const productImage = document.createElement('img');
+                productImage.src = cartItem.image;
+                productImage.alt = cartItem.name;
+
+                const productName = document.createElement('h3');
+                productName.textContent = cartItem.name;
+
+                const productPrice = document.createElement('p');
+                productPrice.textContent = `Price: ₹${cartItem.price.toFixed(2)}`;
+
+                productDiv.appendChild(productImage);
+                productDiv.appendChild(productName);
+                productDiv.appendChild(productPrice);
+                cartContainer.appendChild(productDiv);
+
+                total += cartItem.price;
+            });
+
+            document.getElementById('total-price').textContent = `Total: ₹${total.toFixed(2)}`;
+        }
+
+        function checkout() {
+            if (cart.length === 0) {
+                alert('Your cart is empty!');
+                return;
+            }
+            alert('Thank you for your purchase!');
+            cart = [];
+            updateCart();
+        }
+    </script>
+</body>
+</html>
